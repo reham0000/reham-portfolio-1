@@ -50,49 +50,52 @@ const Skill = () => {
 
   return (
     <section id="skills" className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Beautiful Animated Background */}
-      <div className="absolute inset-0 -z-10">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50/80 via-white to-blue-50/80"></div>
+      {/* Enhanced Green & White Background */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        {/* Layered gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-white to-green-50"></div>
         
-        {/* Floating tech bubbles */}
-        {[...Array(15)].map((_, i) => (
+        {/* Organic green shapes */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute -left-20 -top-20 w-96 h-96 rounded-full bg-green-200/40 blur-3xl"></div>
+          <div className="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-green-300/30 blur-3xl"></div>
+          <div className="absolute right-1/4 top-1/3 w-64 h-64 rounded-full bg-green-100/50 blur-2xl"></div>
+        </div>
+
+        {/* Floating tech icons */}
+        {['🌱', '💻', '🚀', '🔌', '🖥️', '📱', '🌐', '📊', '🔧', '🎨'].map((icon, i) => (
           <motion.div
             key={i}
             initial={{
               x: Math.random() * 100,
               y: Math.random() * 100,
               opacity: 0,
-              scale: 0
+              rotate: Math.random() * 360
             }}
             animate={{
               x: [null, Math.random() * 100 - 50],
               y: [null, Math.random() * 100 - 50],
-              opacity: [0, 0.2, 0],
-              scale: [0, Math.random() * 0.5 + 0.5, 0]
+              opacity: [0, 0.4, 0],
+              rotate: [0, Math.random() * 360]
             }}
             transition={{
-              duration: Math.random() * 20 + 20,
+              duration: Math.random() * 30 + 30,
               repeat: Infinity,
               repeatType: "reverse",
               ease: "easeInOut"
             }}
-            className={`absolute rounded-full ${
-              ['bg-green-200/40', 'bg-blue-200/40', 'bg-purple-200/40'][i % 3]
-            }`}
+            className="absolute text-2xl text-green-300/50"
             style={{
-              width: `${Math.random() * 200 + 50}px`,
-              height: `${Math.random() * 200 + 50}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
-          />
+          >
+            {icon}
+          </motion.div>
         ))}
 
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        </div>
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       </div>
 
       <div className="max-w-6xl mx-auto relative">
