@@ -12,6 +12,15 @@ const MoreProject = () => {
   const projects = [
     {
       id: 1,
+      title: "Reham's Portfolio",
+      description: "Here you can get all information about me",
+      tags: ["React", "Node.js", "Firebase"],
+      link: "https://reham-portfolio-1.vercel.app/",
+      github: "https://github.com/reham0000/reham-portfolio-1",
+      image: "https://i.ibb.co.com/tTDNF4rM/Whats-App-Image-2025-05-11-at-14-13-18-9dff19ec.jpg",
+    },
+    {
+      id: 2,
       title: "BU News Desk",
       description: "A news paper website. Where people can read the world news",
       tags: ["React", "Node.js", "Firebase"],
@@ -20,7 +29,7 @@ const MoreProject = () => {
       image: "https://i.ibb.co.com/pj3WPC54/Whats-App-Image-2025-05-11-at-13-31-15-8776e00e.jpg",
     },
     {
-      id: 2,
+      id: 3,
       title: "Job Portal",
       description: "A website where people can find jobs and admin can upload new jobs",
       tags: ["React", "Firebase","MongoDB"],
@@ -29,7 +38,7 @@ const MoreProject = () => {
       image: "https://i.ibb.co.com/23p2FkVJ/Whats-App-Image-2025-05-11-at-13-39-50-0ff5c6fe.jpg",
     },
     {
-      id: 3,
+      id: 4,
       title: "Restaurant Management",
       description: "A Proper restaurant-management Website. Where people can order food.",
       tags: ["React", "Firebase","MongoDB"],
@@ -38,7 +47,7 @@ const MoreProject = () => {
       image: "https://i.ibb.co.com/jXfYXdQ/Whats-App-Image-2025-05-11-at-13-44-36-6978b001.jpg",
     },
     {
-      id: 4,
+      id: 5,
       title: "CrowdCube",
       description: "This a website where people can help each other through money, business ides etc.",
       tags: ["React", "Firebase","MongoDB"],
@@ -47,7 +56,7 @@ const MoreProject = () => {
       image: "https://i.ibb.co.com/hFQcxJkD/Whats-App-Image-2025-05-11-at-13-48-45-ef99e2c4.jpg"
     },
     {
-      id: 5,
+      id: 6,
       title: "Winter Donation",
       description: "A website where people can give their cloths to the poor people",
       tags: ["React", "Firebase","MongoDB"],
@@ -56,7 +65,7 @@ const MoreProject = () => {
       image: "https://i.ibb.co.com/sJJyTsHZ/Whats-App-Image-2025-05-11-at-13-52-54-2f4e5e5b.jpg"
     },
     {
-      id: 3,
+      id: 7,
       title: "Gadget Heaven",
       description: "This is a accessories website. People can buy their gadgets online from this website",
       tags: ["React", "Firebase","MongoDB"],
@@ -85,7 +94,7 @@ const MoreProject = () => {
 
 
   return (
-   <section className="relative py-20 overflow-hidden bg-gradient-to-b from-white to-emerald-50">
+   <section className="mt-[-50px] relative py-20 overflow-hidden bg-gradient-to-b from-white to-emerald-50">
       {/* Animated background elements */}
       <motion.div 
         animate={{
