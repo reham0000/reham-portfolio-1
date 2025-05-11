@@ -12,48 +12,57 @@ const MoreProject = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "Full-featured online store with payment integration",
-      tags: ["React", "Node.js", "MongoDB"],
-      link: "#",
-      github: "#",
-      image: "/images/ecommerce.jpg"
+      title: "BU News Desk",
+      description: "A news paper website. Where people can read the world news",
+      tags: ["React", "Node.js", "Firebase"],
+      link: "https://bu-news-desk.web.app/category/01",
+      github: "https://github.com/reham0000/dragon-news",
+      image: "https://i.ibb.co.com/pj3WPC54/Whats-App-Image-2025-05-11-at-13-31-15-8776e00e.jpg",
     },
     {
       id: 2,
-      title: "Health Tracker",
-      description: "Fitness and nutrition tracking application",
-      tags: ["React Native", "Firebase"],
-      link: "#",
-      github: "#",
-      image: "/images/health.jpg"
+      title: "Job Portal",
+      description: "A website where people can find jobs and admin can upload new jobs",
+      tags: ["React", "Firebase","MongoDB"],
+      link: "https://job-portal-6aada.web.app/",
+      github: "https://github.com/reham0000/job-portal-client1",
+      image: "https://i.ibb.co.com/23p2FkVJ/Whats-App-Image-2025-05-11-at-13-39-50-0ff5c6fe.jpg",
     },
     {
       id: 3,
-      title: "Task Manager",
-      description: "Collaborative project management tool",
-      tags: ["Vue.js", "Express", "PostgreSQL"],
-      link: "#",
-      github: "#",
-      image: "/images/task.jpg"
+      title: "Restaurant Management",
+      description: "A Proper restaurant-management Website. Where people can order food.",
+      tags: ["React", "Firebase","MongoDB"],
+      link: "https://tasty-treat-11525.web.app/",
+      github: "https://github.com/reham0000/restaurant-management",
+      image: "https://i.ibb.co.com/jXfYXdQ/Whats-App-Image-2025-05-11-at-13-44-36-6978b001.jpg",
+    },
+    {
+      id: 4,
+      title: "CrowdCube",
+      description: "This a website where people can help each other through money, business ides etc.",
+      tags: ["React", "Firebase","MongoDB"],
+      link: "https://crowd-funding-936c0.web.app/",
+      github: "https://github.com/reham0000/crowd-funding-client",
+      image: "https://i.ibb.co.com/hFQcxJkD/Whats-App-Image-2025-05-11-at-13-48-45-ef99e2c4.jpg"
+    },
+    {
+      id: 5,
+      title: "Winter Donation",
+      description: "A website where people can give their cloths to the poor people",
+      tags: ["React", "Firebase","MongoDB"],
+      link: "https://winter-clothing-project.web.app/",
+      github: "https://github.com/reham0000/winter-donation",
+      image: "https://i.ibb.co.com/sJJyTsHZ/Whats-App-Image-2025-05-11-at-13-52-54-2f4e5e5b.jpg"
     },
     {
       id: 3,
-      title: "Task Manager",
-      description: "Collaborative project management tool",
-      tags: ["Vue.js", "Express", "PostgreSQL"],
-      link: "#",
-      github: "#",
-      image: "/images/task.jpg"
-    },
-    {
-      id: 3,
-      title: "Task Manager",
-      description: "Collaborative project management tool",
-      tags: ["Vue.js", "Express", "PostgreSQL"],
-      link: "#",
-      github: "#",
-      image: "/images/task.jpg"
+      title: "Gadget Heaven",
+      description: "This is a accessories website. People can buy their gadgets online from this website",
+      tags: ["React", "Firebase","MongoDB"],
+      link: "https://vocal-pixie-b008dc.netlify.app/",
+      github: "https://github.com/reham0000/gadget-heaven",
+      image: "https://i.ibb.co.com/FqjKgSVK/Whats-App-Image-2025-05-11-at-13-58-26-ecaa48d2.jpg"
     },
     
   ];
