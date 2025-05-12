@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { 
-  Code, Cpu, Database, Server, Smartphone, Globe, 
-  Rocket, Layers, Cog, BrainCircuit, GraduationCap 
+import {
+  Code,
+  Cpu,
+  Database,
+  Server,
+  Smartphone,
+  Globe,
+  Rocket,
+  Layers,
+  Cog,
+  BrainCircuit,
+  GraduationCap,
 } from "lucide-react";
 
 const About = () => {
@@ -13,13 +22,13 @@ const About = () => {
   useEffect(() => {
     const currentYear = new Date().getFullYear();
     const experience = currentYear - startYear;
-    
+
     // Animate the years counter
     let start = 0;
     const end = experience;
     const duration = 2000; // milliseconds
     const increment = end / (duration / 16); // 60fps
-    
+
     const timer = setInterval(() => {
       start += increment;
       if (start >= end) {
@@ -73,7 +82,11 @@ const About = () => {
     { icon: <Database size={20} />, name: "Database", color: "bg-green-100" },
     { icon: <Globe size={20} />, name: "MongoDB", color: "bg-green-50" },
     { icon: <Cog size={20} />, name: "React", color: "bg-green-100" },
-    { icon: <BrainCircuit size={20} />, name: "Tailwind CSS", color: "bg-green-50" },
+    {
+      icon: <BrainCircuit size={20} />,
+      name: "Tailwind CSS",
+      color: "bg-green-50",
+    },
   ];
 
   const projectsCompleted = 24;
@@ -88,10 +101,10 @@ const About = () => {
       <div className="absolute inset-0 -z-10 overflow-hidden">
         {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-white" />
-        
+
         {/* Subtle leaf pattern */}
         <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzAwMDAwMCIgb3BhY2l0eT0iMC4wNSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')]" />
-        
+
         {/* Floating elements */}
         {[...Array(12)].map((_, i) => (
           <motion.div
@@ -100,19 +113,19 @@ const About = () => {
               x: Math.random() * 100,
               y: Math.random() * 100,
               opacity: 0,
-              scale: 0
+              scale: 0,
             }}
             animate={{
               x: [null, Math.random() * 50 - 25],
               y: [null, Math.random() * 50 - 25],
               opacity: [0, 0.15, 0],
-              scale: [0, Math.random() * 0.8 + 0.2, 0]
+              scale: [0, Math.random() * 0.8 + 0.2, 0],
             }}
             transition={{
               duration: Math.random() * 15 + 15,
               repeat: Infinity,
               repeatType: "reverse",
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
             className="absolute rounded-full bg-green-200/30"
             style={{
@@ -157,20 +170,27 @@ const About = () => {
             className="w-full lg:w-1/2"
           >
             {/* Introduction */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="mb-8 p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-green-100"
             >
               <div className="flex items-center gap-3 mb-4">
                 <GraduationCap className="text-green-600" size={24} />
                 <h3 className="text-xl font-semibold text-gray-800">
-                  Full Stack Developer & CS Student
+                  Full Stack Developer & CSE Student
                 </h3>
               </div>
               <p className="text-gray-600 leading-relaxed mb-4">
-                I specialize in building modern web applications with MERN stack. 
-                Currently pursuing Computer Science while developing solutions for 
-                real-world problems through code.
+                I specialize in building modern web applications with MERN
+                stack. 
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Bachelor of Science in CSE, Bangladesh University 01/2022 –
+                present | Bangladesh CGPA: 3.41 (Out of 4.00)
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Higher Secondary Certificate in Science, Fazilatun nessa mujib govt. collage
+                06/2018 – 03/2020 | Bangladesh GPA: 4.83 (Out of 5.00)
               </p>
               <div className="flex flex-wrap gap-4 mt-4">
                 <div className="flex items-center gap-2">
@@ -181,9 +201,7 @@ const About = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Layers className="text-green-600" size={18} />
-                  <span className="text-gray-700">
-                    10+ projects
-                  </span>
+                  <span className="text-gray-700">10+ projects</span>
                 </div>
               </div>
             </motion.div>
@@ -210,12 +228,14 @@ const About = () => {
                     onHoverStart={() => setHoveredTech(index)}
                     onHoverEnd={() => setHoveredTech(null)}
                     className={`p-3 rounded-lg shadow-sm transition-all ${area.color} ${
-                      hoveredTech === index ? 'ring-2 ring-green-500' : ''
+                      hoveredTech === index ? "ring-2 ring-green-500" : ""
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       <div className="text-green-600">{area.icon}</div>
-                      <span className="text-gray-700 font-medium">{area.name}</span>
+                      <span className="text-gray-700 font-medium">
+                        {area.name}
+                      </span>
                     </div>
                   </motion.div>
                 ))}
@@ -259,7 +279,7 @@ const About = () => {
           >
             <div className="relative w-72 h-72 sm:w-96 sm:h-96">
               {/* Main Circle */}
-              <motion.div 
+              <motion.div
                 animate={{ rotate: 360 }}
                 transition={{
                   duration: 60,
@@ -268,7 +288,7 @@ const About = () => {
                 }}
                 className="absolute inset-0 rounded-full border-2 border-dashed border-green-200"
               />
-              
+
               {/* Core Element */}
               <div className="absolute inset-8 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center shadow-lg">
                 <div className="w-3/4 h-3/4 rounded-full bg-white shadow-inner flex items-center justify-center">

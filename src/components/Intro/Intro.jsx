@@ -230,7 +230,7 @@ const Intro = () => {
               backgroundColor: "rgba(5, 150, 105, 0.05)"
             }}
             whileTap={{ scale: 0.95 }}
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/1SjGO3mcbkfavmw1kRWJ7nK3B0HxlF2ri/view?usp=sharing"
             download
             className="px-8 py-3 border-2 border-green-500 text-green-600 rounded-lg font-medium flex items-center gap-2 transition-colors relative"
           >
