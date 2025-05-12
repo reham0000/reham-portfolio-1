@@ -6,6 +6,7 @@ import About from "../About/About";
 import Skill from "../Skill/Skill";
 import Project from "../Project/Project";
 import Contact from "../Contact/Contact";
+// import Contact from "../Contact/Contact";
 
 const MainLayout = () => {
   return (
