@@ -5,16 +5,19 @@ import { CiFacebook } from "react-icons/ci";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      "service_rodcp3i",
-      "template_6d05tir",
-      e.target,
-      "i6O0spVlutP0oqTfC"
-    );
+    emailjs
+      .sendForm(
+        "service_rodcp3i",
+        "template_6d05tir",
+        e.target,
+        "i6O0spVlutP0oqTfC"
+      )
+      .then((result) => {
+        e.target.reset();
+      });
   };
 
   const container = {
