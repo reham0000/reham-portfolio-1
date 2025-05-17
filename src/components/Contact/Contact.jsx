@@ -129,7 +129,7 @@ const Contact = () => {
                   Call Me
                 </h3>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+8801904617354"
                   className="text-emerald-600 hover:text-emerald-800 transition-colors"
                 >
                   01904617354

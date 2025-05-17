@@ -182,15 +182,16 @@ const About = () => {
               </div>
               <p className="text-gray-600 leading-relaxed mb-4">
                 I specialize in building modern web applications with MERN
-                stack. 
+                stack.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Bachelor of Science in CSE, Bangladesh University 01/2022 –
                 present | Bangladesh CGPA: 3.41 (Out of 4.00)
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Higher Secondary Certificate in Science, Fazilatun nessa mujib govt. collage
-                06/2018 – 03/2020 | Bangladesh GPA: 4.83 (Out of 5.00)
+                Higher Secondary Certificate in Science, Fazilatun nessa mujib
+                govt. collage 06/2018 – 03/2020 | Bangladesh GPA: 4.83 (Out of
+                5.00)
               </p>
               <div className="flex flex-wrap gap-4 mt-4">
                 <div className="flex items-center gap-2">
@@ -298,7 +299,7 @@ const About = () => {
 
               {/* Orbiting Tech Icons */}
               {[
-                { icon: "⚛", name: "React", color: "bg-green-100" },
+                { icon: "⚛", name: "React", color: "bg-black-00" },
                 { icon: "λ", name: "Node", color: "bg-green-50" },
                 { icon: "{}", name: "JS", color: "bg-green-100" },
                 { icon: "</>", name: "HTML", color: "bg-green-50" },
