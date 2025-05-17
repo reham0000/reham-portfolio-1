@@ -101,7 +101,7 @@ const Project = () => {
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
               My <span className="text-emerald-600">Projects</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg font-semibold text-gray-600 max-w-2xl mx-auto">
               Here are some of my recent works and case studies
             </p>
           </motion.div>
@@ -139,9 +139,7 @@ const Project = () => {
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <span className="text-white font-medium">View Project</span>
-                  </div>
+                  
                 </motion.div>
 
                 {/* Project content */}
@@ -200,14 +198,15 @@ const Project = () => {
               </motion.div>
             ))}
           </motion.div>
-        </div>
-        <div className="mt-16 flex justify-center items-center">
+           <div className="mt-16 flex justify-center items-center">
           <a href="/viewMore">
             <button className="btn btn-success font-bold">
               View All Projects
             </button>
           </a>
         </div>
+        </div>
+       
       </section>
     </>
   );

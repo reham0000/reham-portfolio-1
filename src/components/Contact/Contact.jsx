@@ -81,7 +81,7 @@ const Contact = () => {
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Get <span className="text-emerald-600">In Touch</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg font-semibold text-gray-600 max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? Let's connect!
           </p>
         </motion.div>
@@ -153,6 +153,8 @@ const Contact = () => {
               </div>
             </motion.div>
 
+            
+
             {/* Social links */}
             <motion.div
               variants={item}
@@ -185,8 +187,11 @@ const Contact = () => {
               >
                 <CiFacebook className="text-xl" />
               </motion.a>
+              
             </motion.div>
+            <p className="text-black font-semibold">© 2025 Reham. All rights reserved.</p>
           </motion.div>
+          
 
           {/* Contact form */}
           <motion.div
@@ -227,7 +232,7 @@ const Contact = () => {
                     id="email"
                     name="email_from"
                     className="w-full px-4 py-2 text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
-                    placeholder="your@email.com"
+                    placeholder="Your email"
                   />
                 </div>
               </div>

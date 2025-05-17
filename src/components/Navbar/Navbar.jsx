@@ -80,12 +80,30 @@ const Navbar = () => {
             whileTap={{ scale: 0.95 }}
             className="flex items-center gap-2 text-xl font-semibold text-gray-900"
           >
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 1, repeat: Infinity, repeatDelay: 5 }}
-              className="w-8 h-8 rounded-full bg-gradient-to-r from-white-600 to-green-700"
-            />
-            <span className="text-gray-900">Portfolio</span>
+            <div className="flex items-center gap-3">
+              <motion.div
+                animate={{
+                  rotate: [0, 10, -10, 0],
+                  scale: [1, 1.1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  repeatDelay: 3,
+                  ease: "easeInOut",
+                }}
+                className="w-8 h-8 rounded-full bg-gradient-to-r from-emerald-400 to-green-600 shadow-md"
+              />
+
+              <motion.span
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-green-600 bg-clip-text text-transparent"
+              >
+                Portfolio
+              </motion.span>
+            </div>
           </motion.a>
 
           {/* Desktop Navigation */}

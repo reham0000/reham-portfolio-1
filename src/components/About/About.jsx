@@ -84,7 +84,7 @@ const About = () => {
     { icon: <Cog size={20} />, name: "React", color: "bg-green-100" },
     {
       icon: <BrainCircuit size={20} />,
-      name: "Tailwind CSS",
+      name: "Firebase",
       color: "bg-green-50",
     },
   ];
@@ -177,7 +177,7 @@ const About = () => {
               <div className="flex items-center gap-3 mb-4">
                 <GraduationCap className="text-green-600" size={24} />
                 <h3 className="text-xl font-semibold text-gray-800">
-                  Full Stack Developer & CSE Student
+                  MERN Stack Developer & CSE Student
                 </h3>
               </div>
               <p className="text-gray-600 leading-relaxed mb-4">

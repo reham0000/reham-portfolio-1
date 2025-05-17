@@ -16,12 +16,12 @@ const Skill = () => {
   const skills = [
     { name: "React", icon: <SiReact />, level: 90, color: "#61DAFB" },
     { name: "Node.js", icon: <SiNodedotjs />, level: 45, color: "#339933" },
-    { name: "TypeScript", icon: <SiTypescript />, level: 20, color: "#3178C6" },
+    { name: "TypeScript", icon: <SiTypescript />, level: 10, color: "#3178C6" },
     { name: "Tailwind CSS", icon: <SiTailwindcss />, level: 95, color: "#06B6D4" },
     { name: "Figma", icon: <SiFigma />, level: 75, color: "#F24E1E" },
     { name: "Git", icon: <SiGit />, level: 85, color: "#F05032" },
-    { name: "Next.js", icon: <SiNextdotjs />, level: 30, color: "#000000" },
-    { name: "MongoDB", icon: <SiMongodb />, level: 60, color: "#47A248" },
+    { name: "Next.js", icon: <SiNextdotjs />, level: 20, color: "#000000" },
+    { name: "MongoDB", icon: <SiMongodb />, level: 50, color: "#47A248" },
     { name: "Express", icon: <SiExpress />, level: 50, color: "#000000" },
     { name: "Firebase", icon: <SiFirebase />, level: 80, color: "#FFCA28" }
   ];
@@ -117,8 +117,8 @@ const Skill = () => {
             viewport={{ once: true }}
             className="w-20 h-1 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full"
           />
-          <p className="text-gray-600 max-w-2xl mx-auto mt-4">
-            Technologies I've mastered through projects and experience
+          <p className="text-gray-600 text-lg font-semibold max-w-2xl mx-auto mt-4">
+            The skills I've developed by working on projects and gaining practical experience
           </p>
         </motion.div>
 
@@ -181,19 +181,19 @@ const Skill = () => {
           className="mt-16"
         >
           <h3 className="text-xl font-semibold text-center text-gray-800 mb-6">
-            Also experienced with
+            Also Familiar with
           </h3>
           <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
             {[
               "HTML5/CSS3",
-              "REST APIs",
+              "Java Script",
               "React Testing",
               "VS Code",
               "GitHub",
-              "Postman",
+              "ES6",
               "Image BB",
-              "AWS Basics",
-              "JWT Auth",
+              "Pixso",
+              "JWT Token",
               "Type Script"
             ].map((skill, index) => (
               <motion.span
