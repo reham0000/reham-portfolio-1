@@ -108,7 +108,7 @@ const Contact = () => {
                   Email Me
                 </h3>
                 <a
-                  href="mailto:hello@example.com"
+                  href="mailto:amsarkerreham@gmail.com"
                   className="text-emerald-600 hover:text-emerald-800 transition-colors"
                 >
                   amsarkerreham@gmail.com

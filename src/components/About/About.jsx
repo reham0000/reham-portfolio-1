@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
-  Code,
+  
   Cpu,
   Database,
   Server,
@@ -287,13 +287,14 @@ const About = () => {
                   repeat: Infinity,
                   ease: "linear",
                 }}
-                className="absolute inset-0 rounded-full border-2 border-dashed border-green-200"
+                className="absolute inset-0 rounded-full border-2 border-dashed border-green-500"
               />
 
               {/* Core Element */}
               <div className="absolute inset-8 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center shadow-lg">
                 <div className="w-3/4 h-3/4 rounded-full bg-white shadow-inner flex items-center justify-center">
-                  <Code className="text-green-600" size={48} />
+                  {/* <Code className="text-green-600" size={48} /> */}
+                  <img className="rounded-full" src="https://i.ibb.co/35qH511y/495216271-698025439848804-3631750328799886407-n.jpg" alt="" />
                 </div>
               </div>
 
@@ -321,7 +322,7 @@ const About = () => {
                     ease: "linear",
                   }}
                   whileHover={{ scale: 1.2, zIndex: 10 }}
-                  className={`absolute ${item.color} w-14 h-14 rounded-full flex items-center justify-center shadow-md font-mono text-lg cursor-default border border-green-200`}
+                  className={`absolute ${item.color} w-14 h-14 rounded-full flex items-center justify-center shadow-md font-mono text-lg cursor-default border border-green-300`}
                   title={item.name}
                 >
                   {item.icon}
