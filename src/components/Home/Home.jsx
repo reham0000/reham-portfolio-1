@@ -4,12 +4,13 @@ import Skill from "../Skill/Skill";
 import Project from "../Project/Project";
 import Contact from "../Contact/Contact";
 import Marquee from "../ui/Marquee";
-import { skills } from "../../data/portfolio";
+import { extraTech, skills } from "../../data/portfolio";
 
 // Split the skill list into two rows that run in opposite directions
-const half = Math.ceil(skills.length / 2);
-const rowA = skills.slice(0, half);
-const rowB = skills.slice(half);
+const allTech = [...skills, ...extraTech];
+const half = Math.ceil(allTech.length / 2);
+const rowA = allTech.slice(0, half);
+const rowB = allTech.slice(half);
 
 export default function Home() {
   return (

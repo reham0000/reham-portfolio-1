@@ -63,7 +63,7 @@ export default function Hero() {
       <div aria-hidden className="dots pointer-events-none absolute inset-0" />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-accent/10 blur-3xl"
+        className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-accent/30 blur-3xl"
       />
 
       <div className="relative mx-auto grid max-w-[1280px] items-center gap-16 lg:grid-cols-12 lg:gap-10">
@@ -90,11 +90,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <motion.p {...show(0.55)} className="mt-7 max-w-xl text-lg leading-relaxed text-mute">
-            {profile.intro}
-          </motion.p>
-
-          <motion.p {...show(0.65)} className="mt-4 text-mute">
+          <motion.p {...show(0.55)} className="mt-7 text-lg text-mute">
             Currently working as a <RoleRotator roles={profile.roles} />
           </motion.p>
 
@@ -157,7 +153,7 @@ export default function Hero() {
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-6 pt-24 text-white">
                 <p className="font-serif text-2xl italic">{profile.name}</p>
-                <p className="mt-1 text-sm text-white/75">MERN Stack Developer · CSE Student</p>
+                <p className="mt-1 text-sm text-white/75">MERN Stack Developer · CSE Graduate</p>
               </div>
             </motion.div>
 
@@ -176,7 +172,7 @@ export default function Hero() {
                     transition={{ duration: 4 + i * 0.7, repeat: Infinity, ease: "easeInOut" }}
                     className="flex items-center gap-2 whitespace-nowrap rounded-full border border-line bg-surface px-4 py-2.5 text-sm font-medium shadow-[0_12px_30px_-12px_rgba(0,0,0,0.25)]"
                   >
-                    <Icon className="text-accent" />
+                    <Icon className="text-accent-ink" />
                     {c.label}
                   </motion.div>
                 </motion.div>

@@ -59,7 +59,7 @@ export default function Cursor() {
     default: { width: 34, height: 34, opacity: 1, backgroundColor: "rgba(255,255,255,0)" },
     hover: { width: 60, height: 60, opacity: 1, backgroundColor: "rgba(255,255,255,1)" },
     text: { width: 3, height: 26, opacity: 1, backgroundColor: "rgba(255,255,255,1)" },
-    label: { width: 88, height: 88, opacity: 1, backgroundColor: "rgba(43,78,255,1)" },
+    label: { width: 88, height: 88, opacity: 1, backgroundColor: "rgba(139,231,139,1)" },
     hidden: { width: 0, height: 0, opacity: 0, backgroundColor: "rgba(255,255,255,0)" },
   }[mode];
 
@@ -77,7 +77,7 @@ export default function Cursor() {
             <motion.span
               initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-xs font-medium text-white"
+              className="text-xs font-semibold text-ink"
             >
               {label}
             </motion.span>
@@ -86,7 +86,7 @@ export default function Cursor() {
       </motion.div>
       <motion.div className="absolute left-0 top-0" style={{ x, y }}>
         <div
-          className={`h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent transition-opacity duration-200 ${
+          className={`h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-ink transition-opacity duration-200 ${
             mode === "default" ? "opacity-100" : "opacity-0"
           }`}
         />

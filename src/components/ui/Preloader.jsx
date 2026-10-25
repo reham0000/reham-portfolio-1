@@ -29,7 +29,7 @@ export default function Preloader({ onDone }) {
           transition={{ duration: 0.8, ease: EASE_OUT }}
           className="text-4xl font-medium tracking-[-0.03em]"
         >
-          Reham<span className="font-serif italic text-accent">.</span>
+          Reham<span className="font-serif italic text-accent-ink">.</span>
         </motion.p>
         <div className="mt-6 h-[3px] w-full overflow-hidden rounded-full bg-line">
           <div

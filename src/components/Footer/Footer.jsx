@@ -1,5 +1,5 @@
 import { FiArrowUp } from "react-icons/fi";
-import { navLinks, profile, socials } from "../../data/portfolio";
+import { profile, socials } from "../../data/portfolio";
 import { Roll } from "../ui/Bits";
 import { FadeUp } from "../ui/Reveal";
 import { useScrollTo } from "../ui/SmoothScroll";
@@ -15,7 +15,7 @@ export default function Footer() {
             <div className="md:col-span-6">
               <p className="max-w-md text-3xl font-medium leading-tight tracking-[-0.03em] md:text-4xl">
                 Let's turn your idea into a{" "}
-                <span className="font-serif font-normal italic text-accent-soft">live product.</span>
+                <span className="font-serif font-normal italic text-accent">live product.</span>
               </p>
               <a
                 href={`mailto:${profile.email}`}
@@ -23,16 +23,6 @@ export default function Footer() {
               >
                 <Roll>{profile.email}</Roll>
               </a>
-            </div>
-            <div className="md:col-span-2">
-              <p className="mb-4 text-sm text-white/50">Menu</p>
-              <div className="flex flex-col gap-2">
-                {navLinks.map((l) => (
-                  <a key={l.id} href={`/#${l.id}`} className="group w-fit">
-                    <Roll>{l.label}</Roll>
-                  </a>
-                ))}
-              </div>
             </div>
             <div className="md:col-span-2">
               <p className="mb-4 text-sm text-white/50">Socials</p>
@@ -44,7 +34,7 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-            <div className="md:col-span-2 md:text-right">
+            <div className="md:col-span-4 md:text-right">
               <button
                 onClick={() => scrollTo(0, { duration: 2 })}
                 className="group inline-flex items-center gap-3"

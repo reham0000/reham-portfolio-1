@@ -42,12 +42,12 @@ function Shell() {
         position="bottom-center"
         toastOptions={{
           style: {
-            background: "#121212",
+            background: "#0f2416",
             color: "#ffffff",
             borderRadius: "999px",
             fontSize: "14px",
           },
-          success: { iconTheme: { primary: "#2b4eff", secondary: "#ffffff" } },
+          success: { iconTheme: { primary: "#8be78b", secondary: "#0f2416" } },
         }}
       />
     </LoadedContext.Provider>

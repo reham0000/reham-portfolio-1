@@ -11,6 +11,11 @@ import {
   SiFirebase,
   SiDocker,
   SiNginx,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiJsonwebtokens,
+  SiGithub,
 } from "react-icons/si";
 import photoAbout from "../assets/profile-about.jpg";
 import { FiGithub, FiLinkedin, FiFacebook, FiServer, FiGlobe, FiUploadCloud, FiLayout, FiDatabase } from "react-icons/fi";
@@ -31,7 +36,7 @@ export const profile = {
   intro:
     "I build fast, modern web applications with React, Next.js and TypeScript — and take them all the way to production on my own VPS and custom domains.",
   about:
-    "I'm a MERN stack developer and Computer Science student who builds web applications end to end — from clean, responsive interfaces in React and Next.js to the APIs and databases behind them, deployed on servers I set up myself.",
+    "I'm a MERN stack developer and Computer Science graduate who builds web applications end to end — from clean, responsive interfaces in React and Next.js to the APIs and databases behind them, deployed on servers I set up myself.",
   email: "amsarkerreham@gmail.com",
   phone: "01904617354",
   phoneHref: "tel:+8801904617354",
@@ -60,7 +65,7 @@ export const socials = [
 
 export const education = [
   {
-    period: "01/2022 — Present",
+    period: "01/2022 — 02/2026",
     degree: "B.Sc. in Computer Science & Engineering",
     school: "Bangladesh University",
     grade: "CGPA 3.51 / 4.00",
@@ -120,6 +125,15 @@ export const skillGroups = [
 
 export const skills = skillGroups.flatMap((g) => g.skills);
 
+// Extra tools shown only in the scrolling tech strip
+export const extraTech = [
+  { name: "HTML5", icon: SiHtml5 },
+  { name: "CSS3", icon: SiCss3 },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "JWT Auth", icon: SiJsonwebtokens },
+  { name: "GitHub", icon: SiGithub },
+];
+
 export const familiar = [
   "HTML5 / CSS3",
   "JavaScript",
@@ -175,6 +189,7 @@ export const projects = [
     github: "https://github.com/reham0000/crowd-funding-client",
     image:
       "https://i.ibb.co.com/hFQcxJkD/Whats-App-Image-2025-05-11-at-13-48-45-ef99e2c4.jpg",
+    featured: true,
   },
   {
     id: 5,
@@ -185,6 +200,7 @@ export const projects = [
     github: "https://github.com/reham0000/winter-donation",
     image:
       "https://i.ibb.co.com/sJJyTsHZ/Whats-App-Image-2025-05-11-at-13-52-54-2f4e5e5b.jpg",
+    featured: true,
   },
   {
     id: 6,

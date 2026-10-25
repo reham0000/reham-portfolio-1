@@ -21,7 +21,7 @@ export function SplitReveal({ text, className = "", delay = 0, stagger = 0.05, s
             <span aria-hidden className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-top">
               <motion.span
                 className={`inline-block will-change-transform ${
-                  isAccent ? "font-serif font-normal italic tracking-normal text-accent" : ""
+                  isAccent ? "font-serif font-normal italic tracking-normal text-accent-ink" : ""
                 }`}
                 initial={{ y: "115%" }}
                 animate={show ? { y: "0%" } : { y: "115%" }}

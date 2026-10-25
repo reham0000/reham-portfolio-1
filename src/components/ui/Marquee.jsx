@@ -54,7 +54,7 @@ export default function Marquee({ items, baseVelocity = -2, className = "" }) {
             key={i}
             className="group/pill flex items-center gap-2.5 rounded-full border border-line bg-surface py-2 pl-2 pr-4 text-sm font-medium text-ink/80 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-ink hover:bg-ink hover:text-white md:text-[15px]"
           >
-            <span className="grid h-7 w-7 place-items-center rounded-full bg-canvas text-accent transition-colors duration-300 group-hover/pill:bg-white/15 group-hover/pill:text-white">
+            <span className="grid h-7 w-7 place-items-center rounded-full bg-accent-soft text-accent-ink transition-colors duration-300 group-hover/pill:bg-accent group-hover/pill:text-ink">
               <Icon />
             </span>
             {item.name}

@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
-import { familiar, skillGroups } from "../../data/portfolio";
+import { FiCode } from "react-icons/fi";
+import { skillGroups, skills } from "../../data/portfolio";
 import { EASE_OUT } from "../../lib/motion";
 import { SectionHeader, trackSpotlight } from "../ui/Bits";
 import { FadeUp } from "../ui/Reveal";
+import TechOrbit from "../ui/TechOrbit";
+
+const orbitInner = skills.slice(0, 5);
+const orbitOuter = skills.slice(5, 13);
 
 function SkillRow({ skill, delay }) {
   const Icon = skill.icon;
@@ -10,16 +15,16 @@ function SkillRow({ skill, delay }) {
     <div className="group">
       <div className="mb-2 flex items-center justify-between">
         <span className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-canvas text-lg text-ink transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-accent-soft text-lg text-accent-ink transition-colors duration-300 group-hover:bg-accent group-hover:text-ink">
             <Icon />
           </span>
           <span className="font-medium">{skill.name}</span>
         </span>
         <span className="font-mono text-sm text-mute">{skill.level}%</span>
       </div>
-      <div className="h-1.5 overflow-hidden rounded-full bg-canvas">
+      <div className="h-1.5 overflow-hidden rounded-full bg-accent-soft">
         <motion.div
-          className="h-full rounded-full bg-accent"
+          className="h-full rounded-full bg-gradient-to-r from-accent to-accent-ink"
           initial={{ width: 0 }}
           whileInView={{ width: `${skill.level}%` }}
           viewport={{ once: true }}
@@ -35,9 +40,9 @@ export default function Skill() {
     <section id="skills" className="relative px-5 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1280px]">
         <SectionHeader label="Skills" title="Tools I use to bring ideas to life." accent={["life"]}>
-          <p className="max-w-sm text-mute">
-            From the interface to the server it runs on — frontend, backend, and deployment.
-          </p>
+          <div className="hidden md:block">
+            <TechOrbit inner={orbitInner} outer={orbitOuter} center={<FiCode />} size={270} />
+          </div>
         </SectionHeader>
 
         <div className="grid gap-4 lg:grid-cols-3">
@@ -52,7 +57,7 @@ export default function Skill() {
               >
                 <div className="mb-8 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="grid h-11 w-11 place-items-center rounded-2xl bg-ink text-lg text-white">
+                    <span className="grid h-11 w-11 place-items-center rounded-2xl bg-accent text-lg text-ink">
                       <GroupIcon />
                     </span>
                     <h3 className="text-xl font-medium tracking-tight">{group.title}</h3>
@@ -69,23 +74,6 @@ export default function Skill() {
           })}
         </div>
 
-        <FadeUp className="mt-10 flex flex-col gap-4 md:flex-row md:items-center">
-          <h3 className="shrink-0 text-sm text-mute">Also familiar with</h3>
-          <div className="flex flex-wrap gap-2">
-            {familiar.map((f, i) => (
-              <motion.span
-                key={f}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: EASE_OUT, delay: i * 0.04 }}
-                className="rounded-full border border-line bg-surface px-4 py-2 text-sm transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-white"
-              >
-                {f}
-              </motion.span>
-            ))}
-          </div>
-        </FadeUp>
       </div>
     </section>
   );

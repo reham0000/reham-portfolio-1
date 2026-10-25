@@ -63,7 +63,7 @@ export default function Navbar() {
             </span>
             <span className="text-[15px] font-semibold tracking-tight">
               {profile.short}
-              <span className="text-accent">.</span>
+              <span className="text-accent-ink">.</span>
             </span>
           </a>
 
@@ -82,7 +82,7 @@ export default function Navbar() {
                   {isActive && (
                     <motion.span
                       layoutId="nav-pill"
-                      className="absolute inset-0 rounded-full bg-canvas"
+                      className="absolute inset-0 rounded-full bg-accent-soft"
                       transition={{ type: "spring", stiffness: 380, damping: 32 }}
                     />
                   )}

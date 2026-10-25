@@ -20,7 +20,7 @@ export function ScrollProgress() {
 export function Eyebrow({ children }) {
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-medium text-mute">
-      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+      <span className="h-1.5 w-1.5 rounded-full bg-accent-ink" />
       {children}
     </span>
   );
@@ -100,7 +100,7 @@ export function Button({ href, children, variant = "dark", icon = FiArrowUpRight
   const Icon = icon;
   const styles = {
     dark: "bg-ink text-white",
-    accent: "bg-accent text-white",
+    accent: "bg-accent text-ink",
     ghost: "border border-line bg-surface text-ink hover:border-ink/30",
     light: "bg-white text-ink",
   }[variant];
