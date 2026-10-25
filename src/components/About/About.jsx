@@ -14,10 +14,63 @@ function Card({ className = "", delay = 0, children }) {
   );
 }
 
+/** Animated radar-style map backdrop with a pulsing pin on Dhaka. */
+function LocationRadar() {
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Dot grid, faded toward the edges */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "radial-gradient(rgb(255 255 255 / 0.16) 1px, transparent 1px)",
+          backgroundSize: "14px 14px",
+          maskImage: "radial-gradient(circle at 72% 40%, #000 0%, transparent 75%)",
+          WebkitMaskImage: "radial-gradient(circle at 72% 40%, #000 0%, transparent 75%)",
+        }}
+      />
+
+      <div className="absolute left-[72%] top-[40%]">
+        {/* Range rings */}
+        {[90, 170, 250].map((size) => (
+          <span
+            key={size}
+            className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10"
+            style={{ width: size, height: size }}
+          />
+        ))}
+
+        {/* Rotating sweep */}
+        <motion.span
+          className="absolute h-[250px] w-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{ background: "conic-gradient(from 0deg, rgb(43 78 255 / 0.5), transparent 22%)" }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+        />
+
+        {/* Pulse rings */}
+        {[0, 1].map((i) => (
+          <motion.span
+            key={i}
+            className="absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent"
+            animate={{ scale: [1, 7], opacity: [0.9, 0] }}
+            transition={{ duration: 2.6, repeat: Infinity, delay: i * 1.3, ease: "easeOut" }}
+          />
+        ))}
+
+        {/* Pin */}
+        <span className="absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_0_4px_rgb(43_78_255/0.3),0_0_20px_rgb(43_78_255/0.8)]" />
+      </div>
+
+      {/* Darken the bottom so the text stays readable */}
+      <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink via-ink/70 to-transparent" />
+    </div>
+  );
+}
+
 export default function About() {
   const photoRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: photoRef, offset: ["start end", "end start"] });
-  const imgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const imgY = useTransform(scrollYProgress, [0, 1], ["-3%", "3%"]);
   // Observe the wrapper: a fully clipped element never counts as "in view"
   const photoInView = useInView(photoRef, { once: true, margin: "0px 0px -10% 0px" });
 
@@ -55,7 +108,7 @@ export default function About() {
                 alt={profile.name}
                 loading="lazy"
                 style={{ y: imgY }}
-                className="absolute inset-x-0 -top-[12%] h-[124%] w-full object-cover"
+                className="absolute inset-x-0 -top-[4%] h-[108%] w-full object-cover object-top"
               />
             </motion.div>
           </div>
@@ -94,11 +147,18 @@ export default function About() {
           </Card>
 
           {/* Location */}
-          <Card className="flex flex-col justify-between border-ink bg-ink text-white md:col-span-2" delay={0.1}>
-            <div className="flex items-center gap-2 text-sm text-white/60">
-              <FiMapPin /> Location
+          <Card
+            className="relative flex min-h-[260px] flex-col justify-between overflow-hidden border-ink bg-ink text-white md:col-span-2"
+            delay={0.1}
+          >
+            <LocationRadar />
+            <div className="relative flex items-center justify-between text-sm text-white/60">
+              <span className="flex items-center gap-2">
+                <FiMapPin /> Location
+              </span>
+              <span className="font-mono text-[11px] tracking-wider text-white/40">23.81°N · 90.41°E</span>
             </div>
-            <div className="mt-10">
+            <div className="relative mt-10">
               <p className="font-serif text-4xl italic">Dhaka, BD</p>
               <p className="mt-2 text-sm text-white/60">
                 <LocalTime /> · GMT+6

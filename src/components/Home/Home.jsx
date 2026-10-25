@@ -4,20 +4,26 @@ import Skill from "../Skill/Skill";
 import Project from "../Project/Project";
 import Contact from "../Contact/Contact";
 import Marquee from "../ui/Marquee";
+import { skills } from "../../data/portfolio";
 
-const stack = ["React", "Next.js", "TypeScript", "Node.js", "Express", "MongoDB", "Firebase", "Tailwind CSS", "Docker", "Nginx", "VPS & Hosting", "Domains & DNS"];
+// Split the skill list into two rows that run in opposite directions
+const half = Math.ceil(skills.length / 2);
+const rowA = skills.slice(0, half);
+const rowB = skills.slice(half);
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <div className="border-y border-line bg-surface py-5 md:py-6">
-        <Marquee
-          items={stack}
-          baseVelocity={-1.5}
-          className="text-[clamp(1.5rem,3.5vw,2.75rem)] font-medium tracking-[-0.03em]"
-        />
-      </div>
+      <section aria-label="Tech stack" className="border-y border-line bg-surface/60 py-6 md:py-8">
+        <p className="mb-5 text-center text-xs font-medium uppercase tracking-[0.2em] text-mute">
+          Technologies I work with
+        </p>
+        <div className="space-y-3">
+          <Marquee items={rowA} baseVelocity={-1.6} />
+          <Marquee items={rowB} baseVelocity={1.6} />
+        </div>
+      </section>
       <About />
       <Skill />
       <Project />

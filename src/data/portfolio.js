@@ -12,6 +12,7 @@ import {
   SiDocker,
   SiNginx,
 } from "react-icons/si";
+import photoAbout from "../assets/profile-about.jpg";
 import { FiGithub, FiLinkedin, FiFacebook, FiServer, FiGlobe, FiUploadCloud, FiLayout, FiDatabase } from "react-icons/fi";
 
 export const profile = {
@@ -40,8 +41,7 @@ export const profile = {
     "https://drive.google.com/file/d/1SjGO3mcbkfavmw1kRWJ7nK3B0HxlF2ri/view?usp=sharing",
   photoHero:
     "https://i.ibb.co.com/84d9fyyK/426359487-373526462298705-8369151381072786609-n.jpg",
-  photoAbout:
-    "https://i.ibb.co/35qH511y/495216271-698025439848804-3631750328799886407-n.jpg",
+  photoAbout,
 };
 
 export const socials = [
