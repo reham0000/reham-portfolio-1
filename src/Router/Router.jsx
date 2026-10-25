@@ -6,20 +6,12 @@ import MoreProject from "../components/moreProject/MoreProject";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>,
-
+    element: <MainLayout />,
     children: [
-      {
-        path: "/",
-        element: <Home></Home>,
-      },
-      
+      { index: true, element: <Home /> },
+      { path: "viewMore", element: <MoreProject /> },
     ],
   },
-  {
-        path: "/viewMore",
-        element: <MoreProject></MoreProject>,
-      },
 ]);
 
 export default router;

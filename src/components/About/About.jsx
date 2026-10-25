@@ -1,339 +1,112 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import {
-  
-  Cpu,
-  Database,
-  Server,
-  Smartphone,
-  Globe,
-  Rocket,
-  Layers,
-  Cog,
-  BrainCircuit,
-  GraduationCap,
-} from "lucide-react";
+import { useRef } from "react";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { FiMapPin } from "react-icons/fi";
+import { education, focusAreas, profile } from "../../data/portfolio";
+import { EASE_IN_OUT } from "../../lib/motion";
+import { FadeUp, ScrollWords } from "../ui/Reveal";
+import { CountUp, LocalTime, SectionHeader, trackSpotlight } from "../ui/Bits";
 
-const About = () => {
-  const [hoveredTech, setHoveredTech] = useState(null);
-  const [yearsExperience, setYearsExperience] = useState(0);
-  const startYear = 2020;
+function Card({ className = "", delay = 0, children }) {
+  return (
+    <FadeUp delay={delay} onPointerMove={trackSpotlight} className={`card spotlight p-6 md:p-8 ${className}`}>
+      {children}
+    </FadeUp>
+  );
+}
 
-  useEffect(() => {
-    const currentYear = new Date().getFullYear();
-    const experience = currentYear - startYear;
-
-    // Animate the years counter
-    let start = 0;
-    const end = experience;
-    const duration = 2000; // milliseconds
-    const increment = end / (duration / 16); // 60fps
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        start = end;
-        clearInterval(timer);
-      }
-      setYearsExperience(Math.floor(start));
-    }, 16);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const orbitVariants = {
-    hidden: { scale: 0 },
-    visible: (i) => ({
-      scale: 1,
-      transition: {
-        delay: i * 0.1,
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
-    }),
-  };
-
-  const techAreas = [
-    { icon: <Smartphone size={20} />, name: "Frontend", color: "bg-green-100" },
-    { icon: <Server size={20} />, name: "Backend", color: "bg-green-50" },
-    { icon: <Database size={20} />, name: "Database", color: "bg-green-100" },
-    { icon: <Globe size={20} />, name: "MongoDB", color: "bg-green-50" },
-    { icon: <Cog size={20} />, name: "React", color: "bg-green-100" },
-    {
-      icon: <BrainCircuit size={20} />,
-      name: "Firebase",
-      color: "bg-green-50",
-    },
-  ];
-
-  const projectsCompleted = 24;
-  const happyClients = 18;
+export default function About() {
+  const photoRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: photoRef, offset: ["start end", "end start"] });
+  const imgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  // Observe the wrapper: a fully clipped element never counts as "in view"
+  const photoInView = useInView(photoRef, { once: true, margin: "0px 0px -10% 0px" });
 
   return (
-    <section
-      id="about"
-      className="mt-[-150px] relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
-    >
-      {/* Beautiful Green/White Background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-white" />
+    <section id="about" className="relative px-5 py-24 md:px-10 md:py-32">
+      <div className="mx-auto max-w-[1280px]">
+        <SectionHeader label="About me" title="A developer who cares about the details." accent={["details"]} />
 
-        {/* Subtle leaf pattern */}
-        <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzAwMDAwMCIgb3BhY2l0eT0iMC4wNSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')]" />
-
-        {/* Floating elements */}
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{
-              x: Math.random() * 100,
-              y: Math.random() * 100,
-              opacity: 0,
-              scale: 0,
-            }}
-            animate={{
-              x: [null, Math.random() * 50 - 25],
-              y: [null, Math.random() * 50 - 25],
-              opacity: [0, 0.15, 0],
-              scale: [0, Math.random() * 0.8 + 0.2, 0],
-            }}
-            transition={{
-              duration: Math.random() * 15 + 15,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-            className="absolute rounded-full bg-green-200/30"
-            style={{
-              width: `${Math.random() * 150 + 50}px`,
-              height: `${Math.random() * 150 + 50}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="max-w-6xl mx-auto relative">
-        {/* Header */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={containerVariants}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold mb-4 text-gray-800"
-          >
-            About <span className="text-green-600">Me</span>
-          </motion.h2>
-          <motion.div
-            variants={itemVariants}
-            className="w-20 h-1 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full"
-          />
-        </motion.div>
-
-        {/* Content */}
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            variants={containerVariants}
-            viewport={{ once: true }}
-            className="w-full lg:w-1/2"
-          >
-            {/* Introduction */}
-            <motion.div
-              variants={itemVariants}
-              className="mb-8 p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-green-100"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <GraduationCap className="text-green-600" size={24} />
-                <h3 className="text-xl font-semibold text-gray-800">
-                  MERN Stack Developer & CSE Student
-                </h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                I specialize in building modern web applications with MERN
-                stack.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Bachelor of Science in CSE, Bangladesh University 01/2022 –
-                present | Bangladesh CGPA: 3.41 (Out of 4.00)
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Higher Secondary Certificate in Science, Fazilatun nessa mujib
-                govt. collage 06/2018 – 03/2020 | Bangladesh GPA: 4.83 (Out of
-                5.00)
-              </p>
-              <div className="flex flex-wrap gap-4 mt-4">
-                <div className="flex items-center gap-2">
-                  <Rocket className="text-green-600" size={18} />
-                  <span className="text-gray-700">
-                    passionate web developer
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Layers className="text-green-600" size={18} />
-                  <span className="text-gray-700">10+ projects</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Tech Focus */}
-            <motion.div variants={itemVariants} className="mb-8">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 flex items-center gap-2">
-                <Cpu className="text-green-600" size={22} />
-                Tech Expertise
-              </h3>
-              <motion.div
-                className="grid grid-cols-2 sm:grid-cols-3 gap-3"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={containerVariants}
-              >
-                {techAreas.map((area, index) => (
-                  <motion.div
-                    key={index}
-                    custom={index}
-                    variants={orbitVariants}
-                    whileHover={{ y: -5, scale: 1.05 }}
-                    onHoverStart={() => setHoveredTech(index)}
-                    onHoverEnd={() => setHoveredTech(null)}
-                    className={`p-3 rounded-lg shadow-sm transition-all ${area.color} ${
-                      hoveredTech === index ? "ring-2 ring-green-500" : ""
-                    }`}
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="text-green-600">{area.icon}</div>
-                      <span className="text-gray-700 font-medium">
-                        {area.name}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* Call to Action */}
-            <motion.div variants={itemVariants}>
-              <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg font-medium shadow-lg hover:shadow-green-500/30 transition-all"
-              >
-                Let's Build Something Amazing
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </motion.a>
-            </motion.div>
-          </motion.div>
-
-          {/* Visual Elements */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="w-full lg:w-1/2 flex justify-center relative"
-          >
-            <div className="relative w-72 h-72 sm:w-96 sm:h-96">
-              {/* Main Circle */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 60,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                className="absolute inset-0 rounded-full border-2 border-dashed border-green-500"
-              />
-
-              {/* Core Element */}
-              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center shadow-lg">
-                <div className="w-3/4 h-3/4 rounded-full bg-white shadow-inner flex items-center justify-center">
-                  {/* <Code className="text-green-600" size={48} /> */}
-                  <img className="rounded-full" src="https://i.ibb.co/35qH511y/495216271-698025439848804-3631750328799886407-n.jpg" alt="" />
-                </div>
-              </div>
-
-              {/* Orbiting Tech Icons */}
-              {[
-                { icon: "⚛", name: "React", color: "bg-black-00" },
-                { icon: "λ", name: "Node", color: "bg-green-50" },
-                { icon: "{}", name: "JS", color: "bg-green-100" },
-                { icon: "</>", name: "HTML", color: "bg-green-50" },
-                { icon: "#", name: "CSS", color: "bg-green-100" },
-                { icon: "DB", name: "Mongo", color: "bg-green-50" },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  custom={index}
-                  variants={orbitVariants}
-                  animate={{
-                    rotate: [0, 360],
-                    x: Math.cos(index * (Math.PI / 3)) * 120,
-                    y: Math.sin(index * (Math.PI / 3)) * 120,
-                  }}
-                  transition={{
-                    duration: 20 + index * 2,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  whileHover={{ scale: 1.2, zIndex: 10 }}
-                  className={`absolute ${item.color} w-14 h-14 rounded-full flex items-center justify-center shadow-md font-mono text-lg cursor-default border border-green-300`}
-                  title={item.name}
-                >
-                  {item.icon}
-                </motion.div>
+        <div className="grid gap-4 md:grid-cols-6">
+          {/* Story */}
+          <Card className="flex flex-col justify-between gap-10 md:col-span-4">
+            <ScrollWords
+              text={profile.about}
+              className="text-[clamp(1.4rem,2.6vw,2.3rem)] font-medium leading-[1.25] tracking-[-0.02em]"
+            />
+            <div className="flex flex-wrap gap-2">
+              {focusAreas.map((f) => (
+                <span key={f} className="rounded-full bg-canvas px-3.5 py-1.5 text-sm text-mute">
+                  {f}
+                </span>
               ))}
             </div>
-          </motion.div>
+          </Card>
+
+          {/* Photo */}
+          <div ref={photoRef} className="md:col-span-2 md:row-span-2">
+            <motion.div
+              initial={{ clipPath: "inset(0% 0% 100% 0% round 1.75rem)" }}
+              animate={photoInView ? { clipPath: "inset(0% 0% 0% 0% round 1.75rem)" } : {}}
+              transition={{ duration: 1.3, ease: EASE_IN_OUT }}
+              className="relative h-full min-h-[420px] overflow-hidden rounded-[1.75rem] bg-line"
+            >
+              <motion.img
+                src={profile.photoAbout}
+                alt={profile.name}
+                loading="lazy"
+                style={{ y: imgY }}
+                className="absolute inset-x-0 -top-[12%] h-[124%] w-full object-cover"
+              />
+            </motion.div>
+          </div>
+
+          {/* Stats */}
+          <Card className="md:col-span-2" delay={0.05}>
+            <p className="text-sm text-mute">Projects built</p>
+            <p className="mt-6 text-6xl font-medium tracking-[-0.05em]">
+              <CountUp to={10} suffix="+" />
+            </p>
+            <p className="mt-2 text-sm text-mute">From news portals to e-commerce.</p>
+          </Card>
+          <Card className="md:col-span-2" delay={0.1}>
+            <p className="text-sm text-mute">CGPA in CSE</p>
+            <p className="mt-6 text-6xl font-medium tracking-[-0.05em]">
+              <CountUp to={3.51} decimals={2} />
+            </p>
+            <p className="mt-2 text-sm text-mute">Bangladesh University, out of 4.00.</p>
+          </Card>
+
+          {/* Education */}
+          <Card className="md:col-span-4" delay={0.05}>
+            <p className="mb-6 text-sm text-mute">Education</p>
+            <div className="space-y-6">
+              {education.map((e) => (
+                <div key={e.degree} className="relative border-l-2 border-line pl-5">
+                  <span className="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full border-2 border-accent bg-surface" />
+                  <p className="text-xs font-medium uppercase tracking-wider text-accent">{e.period}</p>
+                  <p className="mt-1 text-lg font-medium tracking-tight md:text-xl">{e.degree}</p>
+                  <p className="text-mute">
+                    {e.school} · {e.grade}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Location */}
+          <Card className="flex flex-col justify-between border-ink bg-ink text-white md:col-span-2" delay={0.1}>
+            <div className="flex items-center gap-2 text-sm text-white/60">
+              <FiMapPin /> Location
+            </div>
+            <div className="mt-10">
+              <p className="font-serif text-4xl italic">Dhaka, BD</p>
+              <p className="mt-2 text-sm text-white/60">
+                <LocalTime /> · GMT+6
+              </p>
+            </div>
+          </Card>
         </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}
